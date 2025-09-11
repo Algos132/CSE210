@@ -10,7 +10,6 @@ class Program
         string ValueFromUser = Console.ReadLine();
 
         int Percentage = int.Parse(ValueFromUser);
-        int PercentageSign = Percentage / 10;
 
         if (Percentage >= 90)
         {
