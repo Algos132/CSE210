@@ -11,6 +11,7 @@ class Program
         int times = 0;
 
         Console.WriteLine("Guess a number between 1 and 100: ");
+        
         do
         {
             Console.Write("Enter your guess: ");
@@ -18,7 +19,7 @@ class Program
             string ValueFromUser = Console.ReadLine();
             guess = int.Parse(ValueFromUser);
             ++times;
-            
+
             if (guess > number)
             {
                 Console.WriteLine("Lower");
@@ -28,7 +29,7 @@ class Program
                 Console.WriteLine("Higher");
             }
         } while (number != guess);
-        
+
         Console.WriteLine("Good guess!");
         Console.WriteLine($"You guessed {times} times.");
 
