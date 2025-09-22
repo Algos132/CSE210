@@ -1,4 +1,7 @@
 using System.Security.Cryptography.X509Certificates;
+using System;
+using System.Collections.Generic;
+
 
 public class Journal
 {
@@ -6,21 +9,31 @@ public class Journal
 
     public void AddEntry(Entry newEntry)
     {
-
+        _entries.Add(newEntry);
     }
     public void DisplayAll()
     {
-
+        foreach (Entry entry in _entries)
+        {
+            Console.WriteLine($"{entry}");
+        }
     }
 
-
-    public void SaveToFIle(string file)
+    public void SaveToFile(string file)
     {
+        string filename = "journalEntries.txt";
 
+        using (StreamWriter outputFile = new StreamWriter(filename))
+        {
+            foreach (Entry entry in _entries)
+            {
+                outputFile.WriteLine($"{entry.Display()}");
+            }
+        }
     }
     
-    public void LoadFromFile(string file)
-    {
+    public void LoadFromFile(string file, string date)
+    {          
 
     }
 }

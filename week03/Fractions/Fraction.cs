@@ -21,22 +21,13 @@ public class Fraction
         _top = top;
         _bottom = bottom;
     }
-    public int GetTop()
+    public string GetFractionString()
     {
-        return _top;
+        string text = $"{_top}/{_bottom}";
+        return text;
     }
-    public void SetTop(int top)
+    public double GetDecimal()
     {
-        _top = top;
+        return (double)_top / (double)_bottom;
     }
-    public int GetBottom()
-    {
-        return _bottom;
-    }
-    public void SetBottom(int bottom)
-    {
-        _bottom = bottom;
-    }
-
 }
-
