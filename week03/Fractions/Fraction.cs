@@ -29,11 +29,11 @@ public class Fraction
     {
         _top = top;
     }
-    public int SetBottom()
+    public int GetBottom()
     {
         return _bottom;
     }
-    public void GetBottom(int bottom)
+    public void SetBottom(int bottom)
     {
         _bottom = bottom;
     }
