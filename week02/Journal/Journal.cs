@@ -32,31 +32,31 @@ public class Journal
 
     public void SaveToFile(string filename)
     {
-        using (StreamWriter outputFile = new StreamWriter(filename, true))
+        using (StreamWriter outputFile = new StreamWriter(filename))
         {
+            Console.WriteLine("Saving to file...");
+            
             foreach (Entry entry in _entries)
             {
-                outputFile.WriteLine($"{entry._date}|{entry._promptText}|{entry._entryText}{System.Environment.NewLine}");
+                outputFile.WriteLine($"\nDate: {entry._date}\nPrompt: {entry._promptText}\nEntry: {entry._entryText}\n|");
             }
-            outputFile.Flush();
+            // outputFile.Flush();
         }
     }
 
     public void LoadFromFile(string filename)
     {
         _entries.Clear();
-        string[] lines = File.ReadAllLines(filename);
+        string[] lines = System.IO.File.ReadAllLines(filename);
 
         foreach (string line in lines)
         {
             string[] parts = line.Split("|");
 
             Entry loadEntry = new Entry();
-            loadEntry._date = parts[0];
-            loadEntry._promptText = parts[1];
-            loadEntry._entryText = parts[2];
 
             _entries.Add(loadEntry);
+            Console.WriteLine(line);
         }
     }
 }
