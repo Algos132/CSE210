@@ -7,59 +7,44 @@ class Program
 {
     static void Main(string[] args)
     {
-        string menuResponse;
-        Console.WriteLine("Welcome to your Journal.");
-        Console.WriteLine("What would you like to do?");
-
-        Console.WriteLine("1. Create an entry with a prompt: (enter \"Write\")");
-        Console.WriteLine("2. See previous entries: (enter \"Entries\")");
-        menuResponse = Console.ReadLine();
-
-        if (menuResponse == "Write")
+        bool running = true;
+        Journal journal = new Journal();
+        do
         {
-            PromptGenerator prompt = new PromptGenerator();
-            string promptText = prompt.GetRandomPrompt();
+            Console.WriteLine("Please select one of the following choices:");
+            Console.WriteLine("1. Write");
+            Console.WriteLine("2. Display");
+            Console.WriteLine("3. Load");
+            Console.WriteLine("4. Save");
+            Console.WriteLine("5. Quit");
+            string menuChoice = Console.ReadLine();
 
-            Console.Write("Enter Date: ");
-            string enteredDate = Console.ReadLine();
-            Console.WriteLine($"Today's Prompt: \"{promptText}\"");
-            string journalEntry = Console.ReadLine();
-
-            Console.WriteLine("What would you like to do with your new entry?");
-            Console.WriteLine("Save to file: (enter \"Save\")");
-            Console.WriteLine("Quit: (enter \"Quit\")");
-            string entryMenu = Console.ReadLine();
-
-            if (entryMenu == "Save")
+            switch (menuChoice)
             {
-                Entry entry = new Entry();
-                entry._date = enteredDate;
-                entry._promptText = promptText;
-                entry._entryText = journalEntry;
-
-                Journal newEntry = new Journal();
-                newEntry.AddEntry(entry);
+                case "1":
+                    journal.AddEntry();
+                    break;
+                case "2":
+                    journal.DisplayAll();
+                    break;
+                case "3":
+                    Console.Write("Enter filename to load: ");
+                    string loadFileName = Console.ReadLine();
+                    journal.LoadFromFile(loadFileName);
+                    break;
+                case "4":
+                    Console.Write("Enter filename to save: ");
+                    string saveFilename = Console.ReadLine();
+                    journal.SaveToFile(saveFilename);
+                    Console.WriteLine("Journal saved successfully.");
+                    break;
+                case "5":
+                    running = false;
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Please enter the number of the option you want to use.");
+                    break;
             }
-            else if (entryMenu == "Quit")
-            {
-                Console.WriteLine("Goodbye!");
-                return;
-            }
-        }
-        else if (menuResponse == "Entries")
-        {
-            Journal journal = new Journal();
-            Console.WriteLine("Enter a date or type \"all\" to see all entries");
-            string date = Console.ReadLine();
-
-            if (date == "all")
-            {
-                journal.DisplayAll();
-            }
-            else
-            {
-                journal.LoadFromFile("journalEntries.txt", date);
-            }
-        }
+        }while (running == true);
     }
 }
