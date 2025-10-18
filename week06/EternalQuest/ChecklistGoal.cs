@@ -37,15 +37,15 @@ class ChecklistGoal : Goal
 
         if (IsComplete() == true)
         {
-            return $"[x] {GetName()} ({GetDescription()}) worth {GetPoints()} points. Completed all {_target} times and earned {_bonus} bonus points!";
+            return $"[x] {_shortName} ({_description}) worth {_points} points. Completed all {_target} times and earned {_bonus} bonus points!";
         }
         else
         {
-            return $"[ ] {GetName()} ({GetDescription()}) worth {GetPoints()} points. Completed {_amountCompleted} out of {_target} times.";
+            return $"[ ] {_shortName} ({_description}) worth {_points} points. Completed {_amountCompleted} out of {_target} times.";
         }
     }
     public override string GetStringRepresentation()
     {
-        return $"Checklist~|{GetName()}~|{GetDescription()}~|{GetPoints()}~|{_isComplete}~|{_amountCompleted}~|{_target}~|{_bonus}~|";
+        return $"Checklist~|{_shortName}~|{_description}~|{_points}~|{_isComplete}~|{_amountCompleted}~|{_target}~|{_bonus}~|";
     }
 }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 class Goal
 {
-    private string _shortName;
-    private string _description;
-    private string _points;
-    public bool _isComplete = false;
+    protected string _shortName;
+    protected string _description;
+    protected string _points;
+    protected bool _isComplete = false;
 
     public Goal(string name, string description, string points)
     {
@@ -21,28 +21,14 @@ class Goal
     {
 
     }
-    public int GetPoints()
-    {
-        return int.Parse(_points);
-    }
-    public string GetName()
-    {
-        return _shortName;
-    }
-    public string GetDescription()
-    {
-        return _description;
-    }
-    public string GetPointsString()
-    {
-        return _points;
-    }
-
     public virtual bool IsComplete()
     {
         return _isComplete;
     }
-
+    public int GetPoints()
+    {
+        return int.Parse(_points);
+    }
     public virtual string GetDetailsString()
     {
         if (IsComplete() == true)
