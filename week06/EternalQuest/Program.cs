@@ -63,6 +63,9 @@ class Program
                             EternalGoal eternalGoal = new EternalGoal(newGoalName, newGoalDescription, newGoalPoints);
                             goalManager.CreateGoal(eternalGoal);
                             break;
+                        default:
+                            Console.WriteLine("Invalid choice. Please try again.");
+                            break;
                     }
                     break;
                 case 2:
