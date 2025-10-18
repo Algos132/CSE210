@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 class ChecklistGoal : Goal
 {
-    private bool _isComplete;
     private int _amountCompleted = 0;
     private int _target;
     private int _bonus;
@@ -26,7 +25,6 @@ class ChecklistGoal : Goal
         if (_amountCompleted >= _target)
         {
             _isComplete = true;
-            int gainedPoints = GetPoints() + _bonus;
         }
         else
         {
