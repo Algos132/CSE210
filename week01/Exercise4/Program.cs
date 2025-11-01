@@ -8,7 +8,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Exercise4 Project.");
+        //Console.WriteLine("Hello World! This is the Exercise4 Project.");
+
         int number = 1;
         int averageLength = 0;
         int sum = 0;
@@ -40,6 +41,7 @@ class Program
                 biggestNumber = numbers[i];
             }
         }
+        
         Console.WriteLine($"The sum is: {sum}");
         Console.WriteLine($"The average is: {sum / averageLength}");
         Console.WriteLine($"The biggest number is: {biggestNumber}");
