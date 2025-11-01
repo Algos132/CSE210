@@ -5,13 +5,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Exercise1 Project.");
-        Console.WriteLine("This is in C#.");
+        //Console.WriteLine("Hello World! This is the Exercise1 Project.");
+        //Console.WriteLine("This is in C#.");
 
-        Console.Write("What is your first name? ");
+        Console.Write("What's your first name? ");
         string first_name = Console.ReadLine();
 
-        Console.Write("What is your last name? ");
+        Console.Write("What's your last name? ");
         string last_name = Console.ReadLine();
 
         Console.WriteLine($"Your name is {last_name}, {first_name} {last_name}.");
