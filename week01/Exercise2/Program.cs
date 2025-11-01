@@ -4,12 +4,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Exercise2 Project.");
+        //Console.WriteLine("Hello World! This is the Exercise2 Project.");
 
         Console.Write("What is your percentage? ");
-        string ValueFromUser = Console.ReadLine();
+        string valueFromUser = Console.ReadLine();
 
-        int Percentage = int.Parse(ValueFromUser);
+        int Percentage = int.Parse(valueFromUser);
 
         if (Percentage >= 90)
         {
